@@ -4,7 +4,7 @@
 #include <algorithm>
 using namespace std;
 
-const int COORD_MAX =  100;
+const int COORD_MAX =  300;
 const int N_MAX     =  1000;
 // This solution assumes that the rectangle coordinates are
 // smaller than COORD_MAX in absolute value and there are no more
