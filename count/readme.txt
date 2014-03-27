@@ -1,7 +1,6 @@
-sol.cpp - an optimal solution. The output is always in normal form.
-          This file also contains a helper method to check correctness.
-
-The sample outputs (which are not unique) are in normal form.
+sol.cpp     - an optimal solution. The output is always in normal form.
+            This file also contains a helper method to check correctness.
+testgen.py  - contains tools to generate test data.
 
 Fibonacci representation is in normal form if
 - the rightmost digit is 0
