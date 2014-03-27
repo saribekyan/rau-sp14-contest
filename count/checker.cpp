@@ -1,6 +1,6 @@
-#include <iostream>
-#include <vector>
+#include <fstream>
 #include <string>
+#include "../testlib.h"
 using namespace std;
 
 // Normalizes the input. See readme.txt
@@ -26,38 +26,20 @@ void normalize(string &digits) {
     else
         digits = digits.substr(p);
 }
+int main(int argc, char * argv[]) {
+    setName("compares to Fibonacci representations");
+    registerTestlibCmd(argc, argv);
 
-long long get_value(string digits) {
-     vector<long long> f;
-     f.push_back(0);
-     f.push_back(1);
-     for (int i = 2; i <= 80; ++i)
-         f.push_back(f[i-1] + f[i-2]);
-     long long ret = 0;
-     for (int i = 0; i < digits.size(); ++i)
-         if (digits[digits.size() - i - 1] == '1')
-             ret += f[i];
-     return ret;
-}
-int main() {
-    string digits;
-    cin >> digits;
-    //cout << get_value(digits) << '\n';
-    normalize(digits);
-    //cout << get_value(digits) << '\n';
+    string rec = ouf.readString();
+    for (int i = 0; i < rec.size(); ++i)
+        if (rec[i] != '0' && rec[i] != '1')
+            quitf(_pe, "output contains a non-valid character: %c", rec[i]);
+    string exp = ans.readString();
+    normalize(rec);
 
-    if (digits.size() == 1) {
-        cout << "10\n";
-        return 0;
-    }
-    if (digits.size() == 2) {
-        cout << "1000\n";
-        return 0;
-    }
-    digits[digits.size() - 3] = '1';
-    normalize(digits);
-    //cout << get_value(digits) << '\n';
-    cout << digits << '\n';
+    if (exp != rec)
+        quitf(_wa, "expected (sample): %s", exp.c_str());
+    quitf(_ok, "answer: %s", exp.c_str());
     return 0;
 }
 

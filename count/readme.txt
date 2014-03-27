@@ -1,6 +1,6 @@
 sol.cpp     - an optimal solution. The output is always in normal form.
             This file also contains a helper method to check correctness.
-testgen.py  - contains tools to generate test data.
+testgen.py  - contains tools to generate test data. For the first 10 test cases the length of the input is < 80.
 
 Fibonacci representation is in normal form if
 - the rightmost digit is 0
