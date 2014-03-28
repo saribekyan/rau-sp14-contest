@@ -77,7 +77,7 @@ int main(int argc, char * argv[]) {
         for (int j = 0; j < n; ++j)
             if (a[i][j] != j*n + i)
                 quitf(_wa, "didn't transpose");
-    quitf(_ok, "n = %d", n);
+    quitf(_ok, "n = %d, row change = %d", n, rowChange);
     return 0;
 }
 
