@@ -1,0 +1,4 @@
+TAKE 1 2 1
+TAKE 2 1 2
+PUT 1 2 2
+PUT 2 1 1
