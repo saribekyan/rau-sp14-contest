@@ -31,6 +31,9 @@ int main(int argc, char * argv[]) {
     registerTestlibCmd(argc, argv);
 
     string rec = ouf.readString();
+    if (rec.size() > 2000) {
+        quitf(_pe, "output too long");
+    }
     for (int i = 0; i < rec.size(); ++i)
         if (rec[i] != '0' && rec[i] != '1')
             quitf(_pe, "output contains a non-valid character: %c", rec[i]);
