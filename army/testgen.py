@@ -148,14 +148,15 @@ def hard():
         for x in rectangles:
             f.write(str(x[0]) + ' ' + str(x[1]) + ' ' + str(x[2]) + ' ' + str(x[3]) + '\n')
         f.close()
-        print N[i], 'done'
+        print 'test', 'hard', i, 'n = ', N[i], 'done'
 
 def all_pair_crossing(n):
     f = open('tests/' + str(len(N)+1).zfill(3), 'w')
     f.write(str(n) + '\n')
     for i in xrange(n):
         f.write(str(i) + ' ' + str(i) + ' ' + str(i + n) + ' ' + str(i + n) + '\n')
-    f.close() 
+    f.close()
+    print 'test', 'all_pair_cross', 'n = ', n, 'done'
 
 def easy():
     global MAX
@@ -170,7 +171,9 @@ def easy():
         for x in rectangles:
             f.write(str(x[0]) + ' ' + str(x[1]) + ' ' + str(x[2]) + ' ' + str(x[3]) + '\n')
         f.close()
-        print N_test[i], 'done'
+        print 'test', 'easy', i, 'n = ', N_test[i], 'done'
 
+hard()
+easy()
 all_pair_crossing(100000)
 

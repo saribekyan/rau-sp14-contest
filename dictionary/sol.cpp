@@ -59,6 +59,7 @@ int main() {
     Matrix a = sum(Matrix(5, 105, 1, 0), n - 1);
 
     cout << a.a * 26 + a.b << '\n';
+
     return 0;
 }
 

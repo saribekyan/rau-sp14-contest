@@ -97,7 +97,7 @@ int main() {
         intersectionCount += fenwick.intervalSum(vertical[i].second.first + 1, vertical[i].second.second - 1);
     }
 
-    cout << intersectionCount + 2 << '\n';
+    cout << intersectionCount + 1 << '\n';
     return 0;
 }
 

@@ -67,7 +67,7 @@ int main() {
                 ++regionCount;
             }
         }
-    cout << regionCount << '\n';
+    cout << regionCount - 1 << '\n';
     return 0;
 }
 
