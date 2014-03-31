@@ -39,6 +39,7 @@ int main(int argc, char * argv[]) {
         if (!(cin >> s)) {
             out << "PE\n";
             out.close();
+            cerr << "The program never outputted YES or NO\n";
             return PE;
         }
 
@@ -47,6 +48,7 @@ int main(int argc, char * argv[]) {
                 out << "PE\n";
                 finish();
                 out.close();
+                cerr << "YES/NO should be the last line of the program\n";
                 return PE;
             }
             out << s << '\n';
@@ -58,6 +60,7 @@ int main(int argc, char * argv[]) {
             out << "PE\n";
             out.close();
             finish();
+            cerr << "Output can start only with YES/NO/OPEN\n";
             return PE;
         }
 
@@ -70,6 +73,7 @@ int main(int argc, char * argv[]) {
                 out << "PE\n";
                 out.close();
                 finish();
+                cerr << "Not a number\n";
                 return PE;
             }
 
@@ -78,6 +82,7 @@ int main(int argc, char * argv[]) {
                 out << "PE\n";
                 out.close();
                 finish();
+                cerr << "Box number is too large\n";
                 return PE;
             }
         }
@@ -85,6 +90,7 @@ int main(int argc, char * argv[]) {
             out << "PE\n";
             out.close();
             finish();
+            cerr << "Invalid box is too large or small\n";
             return PE;
         }
 
@@ -93,6 +99,7 @@ int main(int argc, char * argv[]) {
     }
     finish();
     out << "PE\n";
+    cerr << "Output is too long\n";
     out.close();
     return PE;
 }
