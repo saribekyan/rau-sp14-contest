@@ -25,7 +25,7 @@ int main(int argc, char * argv[]) {
     for (int i = 0; i < n; ++i) {
         int v, p;
         in >> v >> p;
-        vp.push_back(make_pair(v, p));
+        vp.push_back(make_pair(v, p - 1));
     }
     in.close();
 
