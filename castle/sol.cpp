@@ -16,11 +16,11 @@ int main() {
         int b = rand() % n;
         if (d[b].second != -1) // next != -1 => OPEN b has been outputted
             continue;
-        cout << "OPEN " << b + 1 << '\n';
+        cout << "OPEN " << b + 1 << '\n' << flush;
         int v, p;
         cin >> v >> p;
         if (v == f) {
-            cout << "YES\n";
+            cout << "YES\n" << flush;
             return 0;
         }
 
@@ -43,17 +43,17 @@ int main() {
     p = base[p].second;
 
     do {
-        cout << "OPEN " << p + 1 << '\n';
+        cout << "OPEN " << p + 1 << '\n' << flush;
         int v;
         cin >> v >> p;
         if (v == f) {
-            cout << "YES\n";
+            cout << "YES\n" << flush;
             return 0;
         }
         --p;
     }
     while (p != q);
-    cout << "NO\n";
+    cout << "NO\n" << flush;
     return 0;
 }
 
