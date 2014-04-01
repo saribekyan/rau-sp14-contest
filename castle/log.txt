@@ -1,0 +1,1 @@
+The last line of the output should contain YES or NO.

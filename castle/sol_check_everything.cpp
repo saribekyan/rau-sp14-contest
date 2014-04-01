@@ -5,7 +5,8 @@ int main() {
     int n, f;
     cin >> n >> f;
     for (int i = 0; i < n; ++i) {
-        cout << "OPEN " << i + 1 << flush;
+        cout << "OPEN " << i + 1 << '\n' << flush;
+        int v, p;
         cin >> v >> p;
         if (v == f) {
             cout << "YES" << flush;

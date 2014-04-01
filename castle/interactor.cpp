@@ -12,12 +12,10 @@ using namespace std;
 #define WA 5
 
 bool finish() {
-    bool ret = true;
     if (!ouf.seekEof())
-        ret = false;
-    while (getchar() != EOF) {}
+        return false;
     ouf.close();
-    return ret;
+    return true;
 }
 int main(int argc, char * argv[]) {
     setName("interacts with user program");
@@ -39,23 +37,31 @@ int main(int argc, char * argv[]) {
 
     int m = 100 + n / 5 + 1;
     while (m--) {
-        string s = ouf.readWord("OPEN|YES|NO");
+        string s = ouf.readToken();
 
         if (s == "YES" || s == "NO") {
             if (finish()) {
                 tout << s << '\n' << flush;
                 return OK;
             } else {
-                tout << "YES/NO should be the last line of the output.\n";
+                tout << "The last line of the output should contain YES or NO.\n";
                 return PE;
             }
+            continue;
+        }
+        if (s == "OPEN") {
+            int num = ouf.readInt() - 1;
+            if (0 <= num && num < n) {
+                cout << vp[num].first << ' ' << vp[num].second << '\n' << flush;
+                continue;
+            }
+            tout << "Invalid box number: " << num + 1 << '\n';
+            return PE;
         }
 
-        int num = ouf.readInt(1, n) - 1;
-
-        cout << vp[num].first << ' ' << vp[num].second << '\n' << flush;
+        tout << "Each non-empty line has to start with YES or NO\n";
+        return PE;
     }
-    finish();
     tout << "Too many lines of output.\n";
     return PE;
 }
