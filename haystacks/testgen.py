@@ -25,49 +25,42 @@ def gen_random(n, offset=1):
     return data
 
 def gen_exact_sum(n):
-    data = []
-    s1 = s2 = sum([random.randint(1, M) for i in xrange(n)])
-    for i in xrange(n):
-        while True:
-            a = random.randint(0, 9 * s1 / (n - i) / 5)
-            if s1 >= a:
-                break
-
-        while True:
-            l = random.randint(1, 9 * s2 / (n - i) / 5)
-            if s2 >= l + (n - i - 1):
-                break
-
-        s1 -= a
-        s2 -= l
-
-        data.append([a, l])
-
-    for i in range(n):
-        data[i][0] += s1 / n
-        data[i][1] += s2 / n
-        s1 -= s1 / n
-        s2 -= s2 / n
-    data[random.randint(0, n-1)][0] += s1
-    data[random.randint(0, n-1)][1] += s2
-    return data
+    a = [random.randint(0, M / 2) for i in xrange(n)]
+    s1 = sum(a)
+    l = [random.randint(1, M / 2) for i in xrange(n)]
+    s2 = sum(l)
+    t = s1 - s2
+    if t < 0:
+        t = -t
+        for i in xrange(n):
+            a[i] += t / (n - i)
+            t -= t / (n - i)
+    else:
+        for i in xrange(n):
+            l[i] += t / (n - i)
+            t -= t / (n - i)
+    return zip(a, l)
 
 def almost_exact_sum(n):
     data = gen_exact_sum(n)
     while True:
         p = random.randint(0, n-1)
         if data[p][0] != 0:
-            data[p][0] -= 1
+            data[p] = (data[p][0] - 1, data[p][1])
             break
     return data
 
 # tests 1..5 are manual
-num = 5
-data = []
-for i in xrange(999999):
-    data.append((random.randint(1, 10), random.randint(1, 1000)))
-data.append((M, 1))
-random.shuffle(data)
 
-add_test(data)
+
+num = 12
+add_test(almost_exact_sum(1000000))
+# add_test(gen_random(1000000))
+# data = []
+# for i in xrange(999999):
+#     data.append((random.randint(1, 10), random.randint(1, 1000)))
+# data.append((M, 1))
+# random.shuffle(data)
+# 
+# add_test(data)
 

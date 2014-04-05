@@ -1,6 +1,7 @@
 #include <iostream>
-#include <cstdio>
 #include <vector>
+#include <cstdio>
+#include <assert.h>
 using namespace std;
 
 int main() {
@@ -9,10 +10,12 @@ int main() {
     vector<int> a(n);
     vector<int> l(n);
     for (int i = 0; i < n; ++i) {
-        scanf("%d", &a[i]);
+        // scanf("%d", &a[i]);
+        cin >> a[i];
     }
     for (int i = 0; i < n; ++i) {
-        scanf("%d", &l[i]);
+        // scanf("%d", &l[i]);
+        cin >> l[i];
     }
 
     for (int p = 0; p < n;) {
@@ -33,6 +36,7 @@ int main() {
         }
         p += i + 1;
     }
+
     cout << -1 << '\n';
     return 0;
 }
