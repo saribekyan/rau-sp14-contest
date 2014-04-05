@@ -26,7 +26,6 @@ void normalize(string &digits) {
     else
         digits = digits.substr(p);
 }
-
 long long get_value(string digits) {
      vector<long long> f;
      f.push_back(0);
