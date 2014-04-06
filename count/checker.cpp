@@ -1,17 +1,19 @@
 #include <fstream>
 #include <string>
+#include <iostream>
 #include "../testlib.h"
 using namespace std;
 
 // Normalizes the input. See readme.txt
 void normalize(string &digits) {
     int n = digits.size();
-    digits = "0" + digits;
-    if (digits.size() > 2 && digits[digits.size() - 3] == '1' && digits[digits.size() - 2] == '0') {
-        digits[digits.size() - 3] = '0';
-        digits[digits.size() - 2] = '1';
-    }
+    digits = "000" + digits;
     digits[digits.size() - 1] = '0';
+    if (digits[digits.size() - 2] == '1' && digits[digits.size() - 3] == '0') {
+        digits[digits.size() - 3] = '1';
+        digits[digits.size() - 2] = '0';
+    }
+    cerr << digits << '\n';
     for (int iter = 0; iter < digits.size(); ++iter) {
         for (int i = 2; i < digits.size(); ++i)
             if (digits[i] == '1' && digits[i - 1] == '1') {
@@ -38,7 +40,9 @@ int main(int argc, char * argv[]) {
         if (rec[i] != '0' && rec[i] != '1')
             quitf(_pe, "output contains a non-valid character: %c", rec[i]);
     string exp = ans.readString();
+    cerr << rec << '\n';
     normalize(rec);
+    cerr << rec << '\n';
 
     if (exp != rec)
         quitf(_wa, "expected (sample): %s", exp.c_str());

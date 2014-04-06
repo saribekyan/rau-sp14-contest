@@ -6,12 +6,12 @@ using namespace std;
 // Normalizes the input. See readme.txt
 void normalize(string &digits) {
     int n = digits.size();
-    digits = "0" + digits;
-    if (digits.size() > 2 && digits[digits.size() - 3] == '1' && digits[digits.size() - 2] == '0') {
-        digits[digits.size() - 3] = '0';
-        digits[digits.size() - 2] = '1';
-    }
+    digits = "000" + digits;
     digits[digits.size() - 1] = '0';
+    if (digits[digits.size() - 2] == '1' && digits[digits.size() - 3] == '0') {
+        digits[digits.size() - 3] = '1';
+        digits[digits.size() - 2] = '0';
+    }
     for (int iter = 0; iter < digits.size(); ++iter) {
         for (int i = 2; i < digits.size(); ++i)
             if (digits[i] == '1' && digits[i - 1] == '1') {
@@ -44,16 +44,19 @@ int main() {
     //cout << get_value(digits) << '\n';
     normalize(digits);
     //cout << get_value(digits) << '\n';
+    cerr << digits << '\n';
 
     if (digits.size() == 1) {
-        cout << "10\n";
+        cout << "100\n";
         return 0;
     }
-    if (digits.size() == 2) {
+    if (digits.size() == 3) {
         cout << "1000\n";
         return 0;
     }
+    //cerr << digits << '\n';
     digits[digits.size() - 3] = '1';
+    //cerr << digits << '\n';
     normalize(digits);
     //cout << get_value(digits) << '\n';
     cout << digits << '\n';
