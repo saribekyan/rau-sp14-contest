@@ -1,6 +1,6 @@
 rau-sp14-contest
 ================
-This Contains code and tests for RAU April 6 contest.
+*RAU April 06 contest materials.
 
 Upsolving: http://n-ejudge.rau.am/new-client?contest_id=12. Please send an email to rau-contest@mit.edu for registration. 
 Problem descriptons and solutions are available at http://goo.gl/D3VkUA 
