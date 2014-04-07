@@ -127,7 +127,7 @@ def gen_nested(m):
     return triangles
 
 def gen_nested_right_angled(m):
-    return [(0, 0, i, 0, 0, i) for i in xrange(m)]
+    return [(0, 0, i+1, 0, 0, i+1) for i in xrange(m)]
 
 def gen_nested_chain(n):
     d = []
